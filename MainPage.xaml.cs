@@ -1,24 +1,18 @@
-﻿namespace MauiMedia;
+﻿using Plugin.Media;
+
+namespace MauiMedia;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
-
 	public MainPage()
 	{
 		InitializeComponent();
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
+	private async void OnCounterClicked(object sender, EventArgs e)
 	{
-		count++;
-
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
+		var result = await CrossMedia.Current.PickPhotoAsync();
+		var stuff = 1;
 	}
 }
 
