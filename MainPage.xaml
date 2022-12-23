@@ -7,6 +7,13 @@
     <ScrollView>
         <VerticalStackLayout Spacing="25" VerticalOptions="Center">
 
+            <Slider Margin="30,0" DragCompleted="Slider_DragCompleted" />
+
+            <Label
+                x:Name="CompressionLabel"
+                HorizontalOptions="Center"
+                Text="Compression: 0" />
+
             <Button
                 Clicked="OnPickPhotoClicked"
                 HorizontalOptions="Center"
