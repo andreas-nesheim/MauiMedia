@@ -19,7 +19,7 @@ public partial class MainPage : ContentPage
 
     private async void OnTakePhotoClicked(object sender, EventArgs e)
     {
-        var options = new StoreCameraMediaOptions { CompressionQuality = 100 };
+        var options = new StoreCameraMediaOptions { CompressionQuality = 0 };
         var result = await CrossMedia.Current.TakePhotoAsync(options);
 
         UploadedOrSelectedImage.Source = result?.Path;
@@ -30,9 +30,8 @@ public partial class MainPage : ContentPage
 
         var fileInfo = new FileInfo(result?.Path);
         var fileLength = fileInfo.Length;
-        var erh = 1;
 
-        FileSizeLabel.Text = $"Image size: {fileLength} bytes";
+        FileSizeLabel.Text = $"Image size: {fileLength / 1000} kB";
     }
 }
 

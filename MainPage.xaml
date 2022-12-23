@@ -5,10 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25"
-            VerticalOptions="Center">
+        <VerticalStackLayout Spacing="25" VerticalOptions="Center">
 
             <Button
                 Clicked="OnPickPhotoClicked"
@@ -27,7 +24,7 @@
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 Source="dotnet_bot.png" />
 
-            <Label x:Name="FileSizeLabel" />
+            <Label x:Name="FileSizeLabel" HorizontalOptions="Center" />
 
         </VerticalStackLayout>
     </ScrollView>
