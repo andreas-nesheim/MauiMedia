@@ -1,42 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiMedia.MainPage">
+<ContentPage
+    x:Class="MauiMedia.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ScrollView>
         <VerticalStackLayout
-            Spacing="25"
             Padding="30,0"
+            Spacing="25"
             VerticalOptions="Center">
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
             <Button
-                Text="Pick photo"
                 Clicked="OnPickPhotoClicked"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                Text="Pick photo" />
 
             <Button
-                Text="Take photo"
                 Clicked="OnTakePhotoClicked"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                Text="Take photo" />
+
+            <Image
+                x:Name="UploadedOrSelectedImage"
+                HeightRequest="300"
+                HorizontalOptions="Center"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                Source="dotnet_bot.png" />
+
+            <Label x:Name="FileSizeLabel" />
 
         </VerticalStackLayout>
     </ScrollView>

@@ -13,13 +13,26 @@ public partial class MainPage : ContentPage
     private async void OnPickPhotoClicked(object sender, EventArgs e)
     {
         var result = await CrossMedia.Current.PickPhotoAsync();
-        var stuff = 1;
+
+        UploadedOrSelectedImage.Source = result?.Path;
     }
 
     private async void OnTakePhotoClicked(object sender, EventArgs e)
     {
-        var result = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions { CompressionQuality = 50 });
-        var stuff = 1;
+        var options = new StoreCameraMediaOptions { CompressionQuality = 100 };
+        var result = await CrossMedia.Current.TakePhotoAsync(options);
+
+        UploadedOrSelectedImage.Source = result?.Path;
+
+        // CompressionQuality 0: File.Length = 82050 = 82 kB
+
+        // CompressionQuality 100: File.Length = 2398282 = 2398 kb = 2,4 MB
+
+        var fileInfo = new FileInfo(result?.Path);
+        var fileLength = fileInfo.Length;
+        var erh = 1;
+
+        FileSizeLabel.Text = $"Image size: {fileLength} bytes";
     }
 }
 
